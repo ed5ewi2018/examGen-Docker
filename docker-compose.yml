@@ -32,6 +32,8 @@ services:
       build: ./phpdocker/php-fpm
       container_name: examgenerator-php-fpm
       working_dir: /application
+      environment:
+        - DATABASE_URL=mysql://db-user:iLikeToMakeExams@mysql:3306/examGen
       volumes:
         - .:/application
         - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.2/fpm/conf.d/99-overrides.ini
